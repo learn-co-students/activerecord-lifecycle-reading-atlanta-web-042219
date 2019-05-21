@@ -28,12 +28,12 @@ describe 'form' do
 
     visit edit_post_path(@post)
 
-    fill_in 'post[title]', with: "My edit"
+    fill_in 'post[title]', with: "My Adit"
     fill_in 'post[description]', with: "My post description"
 
     click_on "Update Post"
 
-    expect(page).to have_content("My Edit")
+    expect(page).to have_content("My Adit")
   end
 end
 
