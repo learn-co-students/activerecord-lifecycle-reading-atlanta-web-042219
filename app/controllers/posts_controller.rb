@@ -12,14 +12,16 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		params[:post][:title] = params[:post][:title].titleize
 	  @post = Post.new(params)
 	  @post.save
 	  redirect_to post_path(@post)
 	end
 
 	def update
+		params[:post][:title] = params[:post][:title].titleize
 	  @post = Post.find(params[:id])
-	  @post.update(params.require(:post))
+	  @post.update(params.require(:post).permit(:title, :description))
 	  redirect_to post_path(@post)
 	end
 
